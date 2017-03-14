@@ -54,13 +54,14 @@ public class RestDemo extends HttpServlet {
 	
 	    JSONParser parser = new JSONParser();
 	    JSONObject joUser = new JSONObject();
-        String username="";
+            String username="";
+	    String requiredProject = "";
         try
 	    {
 	    	//creating JSONObject out of JSON formatted String
 	      joUser = (JSONObject) parser.parse(sb.toString());
 	      username= joUser.get("username").toString();
-
+	      //requiredProject = joUser.get("myProject").toString();
 	    } catch (Exception e) { e.printStackTrace(); }
 
     //RestDemoBean rdb = new RestDemoBean();
@@ -77,7 +78,9 @@ public class RestDemo extends HttpServlet {
     
     //Get Data From DataBase    
     //Document doc = rdb.getDocument(username);
-	//rdb.getContactInformation(doc, obj);
+    //rdb.getContactInformation(doc, obj);
+    //rdb.getAllProjects(doc, obj);
+    //rdb.getSingleProject(doc, obj, requiredProject);
 	//rdb.getFavouriteTag(doc, obj);
 	//rdb.getFollower(doc,obj);
 	//rdb.getFollowing(doc, obj);
