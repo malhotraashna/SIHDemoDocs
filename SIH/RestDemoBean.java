@@ -266,4 +266,24 @@ public class RestDemoBean {
       obj.put("Contributing",contri);
       return obj;
       }
+	
+      public JSONObject getAllProjects(Document doc,JSONObject obj)
+      {
+    	  JSONArray list = new JSONArray();
+    	  ArrayList<Document> project = (ArrayList<Document>)doc.get("Projects");
+          for(Document d: project){
+        	  list.add(d);
+          }
+          obj.put("Projects",list);
+          return obj;
+      } 
+       
+      public JSONObject getSingleProject(Document doc, JSONObject obj, String title)
+      {
+    	  ArrayList<Document> required = (ArrayList<Document>)doc.get("Projects");
+    	  for(Document d : required)
+    		  if(d.getString("title").equals(title))
+    			  obj.put("Project", d);
+    	  return obj;
+      }
  }
